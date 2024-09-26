@@ -20,7 +20,7 @@
                     <input type="hidden" name="obat_id" id="" value="{{ $obat->id }}">
                     <div class="mb-3">
                         <label for="formGroupExampleInput" class="form-label">Nama Obat</label>
-                        <input type="text" name="nama_obat" value="{{ $obat->nama_obat }}" class="form-control" id="formGroupExampleInput" placeholder="Masukan Nama Obat">
+                        <input type="text" name="nama_obat" value="{{ $obat->nama }}" class="form-control" id="formGroupExampleInput" placeholder="Masukan Nama Obat">
                         @error('nama_obat')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
