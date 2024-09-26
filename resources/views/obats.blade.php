@@ -20,6 +20,17 @@
             @if (Session::has('fail'))
             <span class="alert alert-success p-2">{{ Session::get('fail') }}</span>
             @endif
+            <!-- Notifikasi Stok Menipis -->
+        @if ($obatsMenipis->count() > 0)
+        <div class="alert alert-warning">
+            <strong>Peringatan!</strong> Stok beberapa obat hampir habis:
+            <ul>
+                @foreach ($obatsMenipis as $obat)
+                    <li>{{ $obat->nama }} (Kode: {{ $obat->kode_obat }}) - Sisa Stok: {{ $obat->stok }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
             <div class="card-body">
                 <table class="display" id="my-table">
                     <thead>

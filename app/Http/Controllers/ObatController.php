@@ -8,7 +8,8 @@ class ObatController extends Controller
 {
     public function loadAllObats(){
         $all_obats = Obat::all();
-        return view('obats',compact('all_obats'));
+        $obatsMenipis = Obat::where('stok', '<', 10)->get();
+        return view('obats', compact('all_obats', 'obatsMenipis'));
     }
     public function loadAllObatsForm(){
         return view('add-obat');
@@ -70,4 +71,5 @@ class ObatController extends Controller
             return redirect('/obats')->with('fail',$e->getMessage());
         }
     }
+
 }
