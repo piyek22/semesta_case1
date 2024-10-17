@@ -15,12 +15,24 @@
                 <a href="/add/obat" class="btn btn-success btn-sm float-end">Tambahkan Obat</a>
             </div>
 
-            <!-- Notifikasi -->
+            <!-- Notifikasi umum -->
             @if (Session::has('success'))
             <span class="alert alert-success p-2">{{ Session::get('success') }}</span>
             @endif
             @if (Session::has('fail'))
             <span class="alert alert-danger p-2">{{ Session::get('fail') }}</span>
+            @endif
+
+            <!-- Notifikasi Stok Obat Menipis -->
+            @if (count($obatsMenipis) > 0)
+            <div class="alert alert-warning">
+                <strong>Perhatian!</strong> Stok obat berikut hampir habis:
+                <ul>
+                    @foreach ($obatsMenipis as $obat)
+                    <li>{{ $obat->nama }} (Stok: {{ $obat->stok }})</li>
+                    @endforeach
+                </ul>
+            </div>
             @endif
 
             <!-- Tabel Obat -->
